@@ -59,31 +59,31 @@ case $1 in
   -P | --Payment)
 	check
 	banner
-	curl -s -H "Authorization:$2" https://discordapp.com/api/v6/users/@me/billing/payment-sources | jq > payment_info.txt
+	curl -H "Authorization:$2" https://discordapp.com/api/v6/users/@me/billing/payment-sources | jq > payment_info.txt
 	printf "Result Saved At payment_info.txt\n\n"
     ;;
   -p | --profile)
 	check
 	banner
-	curl -s -H "Authorization:$2" https://discordapp.com/api/v6/users/@me | jq | grep "id\|username\|avatar\|email\|phone\|locale\|verified" > profile.txt
+	curl -H "Authorization:$2" https://discordapp.com/api/v6/users/@me | jq | grep "id\|username\|avatar\|email\|phone\|locale\|verified" > profile.txt
 	printf "Result Saved At profile.txt\n\n"
 	;;
   -c | --chat)
 	check
 	banner
-	curl -s -H "Authorization:Nzc2NzY5OTY4OTU1NDU3NTQ2.YIcg8w.sTGwZ-8sFLb_lcfxvRr3lTjGEls" https://discordapp.com/api/v6/users/@me/channels | jq | grep "id\|username" > chat.txt
+	curl -H "Authorization:$2" https://discordapp.com/api/v6/users/@me/channels | jq | grep "id\|username">> chat.txt
 	printf "Result Saved At chat.txt\n\n"
 	;;
   -m | --messages)
 	check
 	banner
-	curl -s -H "Authorization:$2" https://discordapp.com/api/v6/channels/{$3}/messages | jq| grep "id\|username\|content" > messages.txt
+	curl -H "Authorization:$2" https://discordapp.com/api/v6/channels/$3/messages | jq| grep "id\|username\|content" > messages.txt
 	printf "Result Saved At messages.txt\n\n"
   	;;
   -f | --friends)
 	check
 	banner
-	curl -s -H "Authorization:$2" https://discordapp.com/api/v6/users/@me/relationships | jq | grep "id\|username" > friends.txt
+	curl -H "Authorization:$2" https://discordapp.com/api/v6/users/@me/relationships | jq | grep "id\|username" > friends.txt
 	printf "Result Saved At friends.txt\n\n"
 	;;
   -h | --help)
@@ -101,3 +101,4 @@ case $1 in
     exit
     ;;
 esac
+#end_of_this_shit :(
