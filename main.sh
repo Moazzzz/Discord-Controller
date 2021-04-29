@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Coded By : Djawad Hammadi @xlinex23 on twitter
 function banner() {
 sleep 3
 printf "
