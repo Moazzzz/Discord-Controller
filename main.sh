@@ -1,9 +1,4 @@
 #!/usr/bin/env bash
-# Coded By Djawad Hammadi
-# Github : https://github.com/Djawed-Hammadi
-# ------------------------------------------
-# Token Controler For Discord : You Can Controle Any Discord Account And Get All Informations By Acces Token
-# I'm Not Responsible For Your Actions 
 function banner() {
 sleep 3
 printf "
